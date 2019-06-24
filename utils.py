@@ -17,7 +17,7 @@ def GetArrayDataFromDF(df):
     """
     Takes df and extracts numpy arrays for city positions, primes.
     """
-    cities = df[['X','Y','prime']].values
+    cities = df[['CityId','X','Y','prime']].values
     #primes = df['prime'].values
     
     return(cities)
