@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np 
-
+import seaborn as sns
 
 def GetCityArray(path):
     """
@@ -12,7 +12,6 @@ def GetCityArray(path):
     return(cities)
 
 
-
 def GetArrayDataFromDF(df):
     """
     Takes df and extracts numpy arrays for city positions, primes.
@@ -21,6 +20,15 @@ def GetArrayDataFromDF(df):
     #primes = df['prime'].values
     
     return(cities)
+    
+    
+def GetDfFromArray(array):
+    """
+    Takes array and turn into dataframe with following column names: 
+    """
+    df = pd.DataFrame(array, columns=['CityId','X','Y','prime'])    
+    return(df)    
+    
 
 def RemoveCityFromArray(cities,index=0):
     "pops top city from city array using index for city row: default =0, i.e. first city in array"
@@ -39,4 +47,3 @@ def GetStartCityFromArray(cities,index=0):
     start_city = cities[index,:]
     #start_prime = primes[index]
     return(start_city)
-    
