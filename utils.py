@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np 
+from matplotlib import pyplot as plt
 import seaborn as sns
 
 def GetCityArray(path):
@@ -42,11 +43,13 @@ def RemoveCityFromArray(cities,index=0):
     
     return(new_cities)
 
+
 def GetStartCityFromArray(cities,index=0):
     "gets details for start city based on array index, default=0, i.e. first city in array"
     start_city = cities[index,:]
     #start_prime = primes[index]
     return(start_city)
+
 
 def PlotCitiesFromArray(array): 
     "Display cities from x and y coordinates"
@@ -54,3 +57,8 @@ def PlotCitiesFromArray(array):
     df=GetDfFromArray(array)
     sns.lmplot(x='X',y='Y',data=df, hue='prime',fit_reg=False)    
     
+
+def PlotPathFromArray(array): 
+    "Display the path from x and y coordinates"
+    df=GetDfFromArray(array)
+    plt.plot('X', 'Y', data=df)
