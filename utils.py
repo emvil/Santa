@@ -47,3 +47,10 @@ def GetStartCityFromArray(cities,index=0):
     start_city = cities[index,:]
     #start_prime = primes[index]
     return(start_city)
+
+def PlotCitiesFromArray(array): 
+    "Display cities from x and y coordinates"
+    # city id, x,y,prime
+    df=GetDfFromArray(array)
+    sns.lmplot(x='X',y='Y',data=df, hue='prime',fit_reg=False)    
+    
